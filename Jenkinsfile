@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        // This retrieves the secret text stored under 'sonar-token-id' 
+        // and assigns it to the SONAR_TOKEN environment variable.
+        SONAR_TOKEN = credentials('sonar-token-id')
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -29,6 +35,7 @@ pipeline {
         }
         stage('SonarCloud Analysis') {
             steps {
+                // Use the injected environment variable (%SONAR_TOKEN%) in your script.
                 bat '''
                   sonar-scanner ^
                   -Dsonar.projectKey=your_project_key ^

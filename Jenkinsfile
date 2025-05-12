@@ -8,13 +8,13 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                bat '"C:\\Program Files\\nodejs\\npm.cmd" install'
             }
         }
         stage('Run Tests') {
             steps {
                 script {
-                    def ret = bat(script: 'npm test', returnStatus: true)
+                    def ret = bat(script: '"C:\\Program Files\\nodejs\\npm.cmd" test', returnStatus: true)
                     echo "npm test exit code: ${ret}"
                 }
             }
@@ -22,7 +22,7 @@ pipeline {
         stage('Generate Coverage Report') {
             steps {
                 script {
-                    def ret = bat(script: 'npm run coverage', returnStatus: true)
+                    def ret = bat(script: '"C:\\Program Files\\nodejs\\npm.cmd" run coverage', returnStatus: true)
                     echo "npm run coverage exit code: ${ret}"
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
         stage('NPM Audit (Security Scan)') {
             steps {
                 script {
-                    def ret = bat(script: 'npm audit', returnStatus: true)
+                    def ret = bat(script: '"C:\\Program Files\\nodejs\\npm.cmd" audit', returnStatus: true)
                     echo "npm audit exit code: ${ret}"
                 }
             }

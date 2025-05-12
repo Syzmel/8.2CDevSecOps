@@ -40,7 +40,7 @@ pipeline {
                   
                   -Dsonar.sources=. ^
                   -Dsonar.host.url=https://sonarcloud.io ^
-                  -Dsonar.login=ae3e0cd85e60d4e43416a9ebf03d827702acd046
+                  -Dsonar.login=%ae3e0cd85e60d4e43416a9ebf03d827702acd046%
                   
                 '''
             }

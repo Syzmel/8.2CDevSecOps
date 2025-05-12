@@ -13,26 +13,17 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                script {
-                    def ret = bat(script: '"C:\\Program Files\\nodejs\\npm.cmd" test', returnStatus: true)
-                    echo "npm test exit code: ${ret}"
-                }
+               bat 'npm test || exit /B 0'  
             }
         }
         stage('Generate Coverage Report') {
             steps {
-                script {
-                    def ret = bat(script: '"C:\\Program Files\\nodejs\\npm.cmd" run coverage', returnStatus: true)
-                    echo "npm run coverage exit code: ${ret}"
-                }
+               bat 'npm run coverage || exit /B 0'   
             }
         }
         stage('NPM Audit (Security Scan)') {
             steps {
-                script {
-                    def ret = bat(script: '"C:\\Program Files\\nodejs\\npm.cmd" audit', returnStatus: true)
-                    echo "npm audit exit code: ${ret}"
-                }
+                bat 'npm audit || exit /B 0'
             }
         }
     }

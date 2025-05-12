@@ -34,8 +34,8 @@ pipeline {
                 // Use the injected environment variable (%SONAR_TOKEN%) in your script.
                 bat '''
                   sonar-scanner ^
-                  -Dsonar.projectKey=syzmel ^
-                  -Dsonar.organization=Syzmel ^
+                  -Dsonar.projectKey=sit223 ^
+                  -Dsonar.organization=syzmel ^
                   -Dsonar.sources=. ^
                   -Dsonar.host.url=https://sonarcloud.io ^
                   -Dsonar.login=ae3e0cd85e60d4e43416a9ebf03d827702acd046

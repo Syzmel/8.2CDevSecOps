@@ -8,8 +8,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                nodejs('Node14') {
-                    bat 'npm install'
+               bat 'npm install'
             }
         }
         stage('Run Tests') {

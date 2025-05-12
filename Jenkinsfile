@@ -14,7 +14,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                bat 'npm test || exit /B 0'  
-               bat 'node -v' 
+               
             }
         }
         stage('Generate Coverage Report') {

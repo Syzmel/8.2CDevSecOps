@@ -3,23 +3,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Syzmel/8.2CDevSecOps.git'
+                git branch: 'main', url: 'https://github.com/your_github_username/8.2CDevSecOps.git'
             }
         }
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Program Files\\nodejs\\npm.cmd" install'
+                bat 'npm install'
             }
         }
         stage('Run Tests') {
             steps {
-               bat 'npm test || exit /B 0'  
-               
+                bat 'npm test || exit /B 0'
             }
         }
         stage('Generate Coverage Report') {
             steps {
-               bat 'npm run coverage || exit /B 0'   
+                bat 'npm run coverage || exit /B 0'
             }
         }
         stage('NPM Audit (Security Scan)') {
